@@ -1,0 +1,4 @@
+- Criar componente de select para os paises
+- Criar componente para os botões
+- Criar componetes para label e input
+- Criar componente para formulario
