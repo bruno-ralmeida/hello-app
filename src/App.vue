@@ -4,21 +4,28 @@
 
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 :root{
-  --purple: #8e44ad;
-  --darker: #2c3e50;
+  --dark: #43475a;
+  --darkness: #3a3d4d;
+  --shadow: #3b3e4e;
   --gray: #95a5a6;
   --white: #ecf0f1;
-  --blue: #3498db;
+  --light-blue: #44a1b8;
+  --blue: #4a90e2;
+  --dark-blue: #333972;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-
+body {
+  background: var(--dark);
+}
 .flex-col {
   display: flex;
   flex-direction: column;
