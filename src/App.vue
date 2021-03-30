@@ -16,16 +16,23 @@
   --blue: #4a90e2;
   --dark-blue: #333972;
 }
+body {
+  background: var(--dark);
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
-body {
-  background: var(--dark);
-}
+
+
 .flex-col {
   display: flex;
   flex-direction: column;
