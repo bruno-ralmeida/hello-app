@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
   img{
+    max-width: 100%;
     width: auto;
   }
 </style>
