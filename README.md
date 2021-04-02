@@ -39,8 +39,12 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 > Login 
 
-![login]()
+![login](https://github.com/bruno-ralmeida/hello-app/blob/main/project-images/home.png)
+
+![login-error](https://github.com/bruno-ralmeida/hello-app/blob/main/project-images/login-error.png)
 
 > Home
 
-![home]()
+![home](https://github.com/bruno-ralmeida/hello-app/blob/main/project-images/lang-select.png)
+
+![home](https://github.com/bruno-ralmeida/hello-app/blob/main/project-images/info.png)
