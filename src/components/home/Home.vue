@@ -1,29 +1,31 @@
 <template>
-  <div>
-    <h2>Home</h2>
-    <br>
-    <h3> Usuário:</h3>
-    <p>{{ this.data.user }}</p>
-    <h3> Idioma Selecionado: </h3>
-    <p>{{ this.data.lang }}</p>
-    <h3>Mensagem: </h3>
-    <p v-html="this.msg">
-      
-    </p>
-    <h3>Infos:</h3>
-    <ul>
-      <li v-for="info of this.info" :key="info"> 
-        {{ info }}
-      </li>
-    </ul>
-  </div>
+  <main>
+    <section class="card_welcome flex-row">
+      <div class="flex-col">
+        <span class="msg" v-html="this.msg"></span>
+        <p>Have a great day!</p>
+      </div>
+      <router-link :to="{name: 'login'}"  class="btn-logout">
+          <btn-base :title="'logout'" :btnType="'button'"/>
+        </router-link>
+    </section>
+    <info-base :info="this.info" class="info"/>
+    
+  </main>
 </template>
 
 <script>
+import Button from "../shared/button/Button";
+import Infos from "../infos/Infos";
+
 export default {
+  components: {
+    "btn-base": Button,
+    "info-base": Infos
+  },
   data() {
     return {
-      data: '',
+      data: "",
       msg: "",
       info: {}
     };
@@ -62,7 +64,8 @@ export default {
             zip
           };
 
-          if (!this.data.lang) this.generateMsg(countryCode.toLowerCase(), null);
+          if (!this.data.lang)
+            this.generateMsg(countryCode.toLowerCase(), null);
           else if (this.data.lang) this.generateMsg(null, this.data.lang);
         })
         .catch(err => console.error(err));
@@ -77,7 +80,7 @@ export default {
       this.$http
         .get(url)
         .then(res => {
-          this.msg = `${res.data.hello} ${this.data.user}!  You have successfully logged in!`;
+          this.msg = `<h2 style="font-size: 32pt; font-weight: bold; text-transform: none;"> ${res.data.hello} ${this.data.user} </h2> <p> you have successfully logged in! </p>`;
         })
         .catch(err => console.error(err));
     }
@@ -85,4 +88,43 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.card_welcome {
+  grid-area: welcome;
+  justify-content: space-between;
+  color: var(--white);
+  text-transform: capitalize;
+}
+
+.card_welcome {
+  align-self: flex-start;
+  font-size: 18pt;
+  margin: 0.5em 0.75em;
+}
+.info {
+  grid-area: infos;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 20vh 80vh;
+  grid-template-areas:
+    "welcome"
+    "infos";
+}
+
+@media only screen and (max-width: 1024px) {
+  main {
+    grid-template-rows: auto auto;
+  }
+  .card_welcome {
+    flex-direction: column-reverse;
+  }
+
+  .btn-logout {
+    align-self: flex-end;
+  }
+}
+</style>
