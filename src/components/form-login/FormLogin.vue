@@ -126,15 +126,15 @@ export default {
     };
   },
   methods: {
-    validateLogin(e){
+    validateLogin(e) {
       if (!this.username || !this.pass) {
-        e.preventDefault()
-        let iptUser = this.$children[1].$el
-        let iptPass = this.$children[2].$el
-        
-        if(!this.username) iptUser.style.borderColor = '#e74c3caa'
-        if(!this.pass) iptPass.style.borderColor = '#e74c3caa'
-      };
+        e.preventDefault();
+        let iptUser = this.$children[0].$el;
+        let iptPass = this.$children[1].$el;
+
+        if (!this.username) iptUser.style.borderColor = "#e74c3caa";
+        if (!this.pass) iptPass.style.borderColor = "#e74c3caa";
+      }
     }
   }
 };
